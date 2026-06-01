@@ -2002,7 +2002,7 @@ class BeamCoverPlateWeld(MomentConnection):
         return components
 
     def call_3DPlate(self, ui, bgcolor):
-        from PySide6.QtWidgets import QCheckBox
+        from osdag_core.compat import QCheckBox
         for chkbox in ui.cad_comp_widget.children():
             if chkbox.objectName() == 'Cover Plate':
                 continue
@@ -2960,3 +2960,4 @@ class BeamCoverPlateWeld(MomentConnection):
     # else:
     #     self.design_status = False
 #    self.logger.error(" : Length of flange plate is less than height of the flange plate")
+

@@ -568,7 +568,7 @@ class Main():
         pass
 
     def call_3DModel(self, ui, bgcolor):
-        from PySide6.QtWidgets import QCheckBox
+        from osdag_core.compat import QCheckBox
         for chkbox in ui.cad_comp_widget.children():
             if chkbox.objectName() == 'Model':
                 continue

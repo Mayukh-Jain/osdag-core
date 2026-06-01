@@ -994,7 +994,7 @@ class LapJointBolted(MomentConnection):
         return components
 
     def call_3DPlate1(self, ui, bgcolor):
-        from PySide6.QtWidgets import QCheckBox
+        from osdag_core.compat import QCheckBox
         for chkbox in ui.cad_comp_widget.children():
             if chkbox.objectName() == 'Plate 1':
                 continue
@@ -1003,7 +1003,7 @@ class LapJointBolted(MomentConnection):
         ui.commLogicObj.display_3DModel("Plate 1", bgcolor)
 
     def call_3DPlate2(self, ui, bgcolor):
-        from PySide6.QtWidgets import QCheckBox
+        from osdag_core.compat import QCheckBox
         for chkbox in ui.cad_comp_widget.children():
             if chkbox.objectName() == 'Plate 2':
                 continue
@@ -1012,7 +1012,7 @@ class LapJointBolted(MomentConnection):
         ui.commLogicObj.display_3DModel("Plate 2", bgcolor)
     
     def call_3DBolt(self, ui, bgcolor):
-        from PySide6.QtWidgets import QCheckBox
+        from osdag_core.compat import QCheckBox
         for chkbox in ui.cad_comp_widget.children():
             if chkbox.objectName() == 'Bolts':
                 continue
@@ -1632,3 +1632,4 @@ class LapJointBolted(MomentConnection):
             import traceback
             traceback.print_exc()
             return False
+

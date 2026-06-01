@@ -23,7 +23,7 @@ import matplotlib
 
 matplotlib.use('QtAgg')
 
-from PySide6.QtCore import Qt, Signal, QTimer
+from osdag_core.compat import Qt, Signal, QTimer
 from PySide6.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout, QLabel,
     QPushButton, QApplication, QFrame,
@@ -856,3 +856,4 @@ class PSOVisualizerWidget(QDialog):
         self.closed.emit()
         self.switch_to_cad.emit()
         event.accept()
+

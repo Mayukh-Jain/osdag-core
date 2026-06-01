@@ -1,8 +1,7 @@
 import logging
 import math
 import numpy as np
-from PySide6.QtWidgets import QDialog
-from PySide6.QtCore import Qt
+from osdag_core.compat import QDialog, Qt
 
 from ....Common import *
 from ....utils.common.material import *

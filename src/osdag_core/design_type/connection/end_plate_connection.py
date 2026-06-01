@@ -1305,8 +1305,8 @@ class EndPlateConnection(ShearConnection):
         return components
 
     def call_3DPlate(self, ui, bgcolor):
-        from PySide6.QtWidgets import QCheckBox
-        from PySide6.QtCore import Qt
+        from osdag_core.compat import QCheckBox
+        from osdag_core.compat import Qt
         for chkbox in ui.cad_comp_widget.children():
             if chkbox.objectName() == 'End Plate':
                 continue
@@ -2137,3 +2137,4 @@ class EndPlateConnection(ShearConnection):
                 else:
                     return False
                 
+

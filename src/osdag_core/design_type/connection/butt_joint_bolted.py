@@ -450,7 +450,7 @@ class ButtJointBolted(MomentConnection):
         return components
 
     def call_3DModel(self, ui, bgcolor):
-        from PySide6.QtWidgets import QCheckBox
+        from osdag_core.compat import QCheckBox
         for chkbox in ui.cad_comp_widget.children():
             if chkbox.objectName() == 'Model':
                 continue
@@ -459,7 +459,7 @@ class ButtJointBolted(MomentConnection):
         ui.commLogicObj.display_3DModel("Model", bgcolor)
 
     def call_3DPlate1(self, ui, bgcolor):
-        from PySide6.QtWidgets import QCheckBox
+        from osdag_core.compat import QCheckBox
         for chkbox in ui.cad_comp_widget.children():
             if chkbox.objectName() == 'Plate 1':
                 continue
@@ -468,7 +468,7 @@ class ButtJointBolted(MomentConnection):
         ui.commLogicObj.display_3DModel('Plate 1', bgcolor)
 
     def call_3DPlate2(self, ui, bgcolor):
-        from PySide6.QtWidgets import QCheckBox
+        from osdag_core.compat import QCheckBox
         for chkbox in ui.cad_comp_widget.children():
             if chkbox.objectName() == 'Plate 2':
                 continue
@@ -477,7 +477,7 @@ class ButtJointBolted(MomentConnection):
         ui.commLogicObj.display_3DModel('Plate 2', bgcolor)
     
     def call_3DCoverPlate(self, ui, bgcolor):
-        from PySide6.QtWidgets import QCheckBox
+        from osdag_core.compat import QCheckBox
         for chkbox in ui.cad_comp_widget.children():
             if chkbox.objectName() == 'Cover Plate':
                 continue
@@ -486,7 +486,7 @@ class ButtJointBolted(MomentConnection):
         ui.commLogicObj.display_3DModel('Cover Plate', bgcolor)
 
     def call_3DBolt(self, ui, bgcolor):
-        from PySide6.QtWidgets import QCheckBox
+        from osdag_core.compat import QCheckBox
         for chkbox in ui.cad_comp_widget.children():
             if chkbox.objectName() == 'Bolts':
                 continue
@@ -1876,3 +1876,4 @@ class ButtJointBolted(MomentConnection):
             import traceback
             traceback.print_exc()
             return False
+
