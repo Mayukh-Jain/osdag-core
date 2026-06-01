@@ -228,7 +228,7 @@ class CommonDesignLogic(object):
             None
         """
         try:
-            from osdag_gui.OS_safety_protocols import get_occ_memory_manager
+            from osdag_core.OS_safety_protocols import get_occ_memory_manager
             manager = get_occ_memory_manager()
             widget_id = id(self.cad_widget)
             
@@ -2943,7 +2943,7 @@ class CommonDesignLogic(object):
         self.component = component
 
         # Use CleanupCoordinator for centralized cleanup
-        from osdag_gui.OS_safety_protocols import get_cleanup_coordinator
+        from osdag_core.OS_safety_protocols import get_cleanup_coordinator
         coordinator = get_cleanup_coordinator()
         coordinator.cleanup_for_new_design(self.cad_widget, self.display)
 
