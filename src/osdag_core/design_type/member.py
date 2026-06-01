@@ -4,9 +4,20 @@ from ..utils.common.component import *
 from ..utils.common.Section_Properties_Calculator import *
 from .main import Main
 from ..utils.common.Unsymmetrical_Section_Properties import Unsymmetrical_I_Section_Properties
-from PySide6 import QtWidgets
-from PySide6.QtWidgets import QCheckBox
-from PySide6.QtCore import Qt
+try:
+    from PySide6 import QtWidgets
+    from PySide6.QtWidgets import QCheckBox
+    from PySide6.QtCore import Qt
+except ImportError:
+    QtWidgets = None
+    class QCheckBox:
+        def __init__(self, *args, **kwargs): pass
+        def isChecked(self): return False
+        def checkState(self): return 0
+    class Qt:
+        Checked = 2
+        Unchecked = 0
+        PartiallyChecked = 1
 
 
 class Member(Main):
