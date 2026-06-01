@@ -227,40 +227,43 @@ class CommonDesignLogic(object):
         Returns:
             None
         """
-        try:
-            from osdag_core.OS_safety_protocols import get_occ_memory_manager
-            manager = get_occ_memory_manager()
-            widget_id = id(self.cad_widget)
+        # Memory management skipped in CLI mode
+        # osdag_gui handles this in GUI mode
+        pass
+        # try:
+        #     from osdag_core.OS_safety_protocols import get_occ_memory_manager
+        #     manager = get_occ_memory_manager()
+        #     widget_id = id(self.cad_widget)
             
-            # Ensure widget is registered
-            if hasattr(self, 'display') and self.display:
-                manager.register_widget(widget_id, self.display.Context)
+        #     # Ensure widget is registered
+        #     if hasattr(self, 'display') and self.display:
+        #         manager.register_widget(widget_id, self.display.Context)
             
-            def register_recursive(obj):
-                """Recursively register shapes from various container types."""
-                if obj is None:
-                    return
-                if isinstance(obj, dict):
-                    for v in obj.values():
-                        register_recursive(v)
-                elif isinstance(obj, (list, tuple)):
-                    for item in obj:
-                        register_recursive(item)
-                else:
-                    # Assume it's a TopoDS_Shape or similar OCC object
-                    try:
-                        manager.register_shape(widget_id, obj)
-                    except Exception:
-                        pass  # Not a registerable shape type
+        #     def register_recursive(obj):
+        #         """Recursively register shapes from various container types."""
+        #         if obj is None:
+        #             return
+        #         if isinstance(obj, dict):
+        #             for v in obj.values():
+        #                 register_recursive(v)
+        #         elif isinstance(obj, (list, tuple)):
+        #             for item in obj:
+        #                 register_recursive(item)
+        #         else:
+        #             # Assume it's a TopoDS_Shape or similar OCC object
+        #             try:
+        #                 manager.register_shape(widget_id, obj)
+        #             except Exception:
+        #                 pass  # Not a registerable shape type
             
-            for shape_arg in shapes:
-                register_recursive(shape_arg)
+        #     for shape_arg in shapes:
+        #         register_recursive(shape_arg)
                 
-        except ImportError:
-            # Memory manager not available (e.g., running CAD tests without GUI)
-            pass
-        except Exception as e:
-            print(f"[WARNING] Could not register shapes with memory manager: {e}")
+        # except ImportError:
+        #     # Memory manager not available (e.g., running CAD tests without GUI)
+        #     pass
+        # except Exception as e:
+        #     print(f"[WARNING] Could not register shapes with memory manager: {e}")
 
 
     def get_notch_ht(self, PB_T, PB_R1, SB_T, SB_R1):
