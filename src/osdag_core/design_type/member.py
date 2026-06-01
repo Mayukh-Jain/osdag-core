@@ -5,8 +5,6 @@ from ..utils.common.Section_Properties_Calculator import *
 from .main import Main
 from ..utils.common.Unsymmetrical_Section_Properties import Unsymmetrical_I_Section_Properties
 
-from osdag_core.compat import QCheckBox, Qt, QtWidgets
-
 
 class Member(Main):
 
@@ -3459,4 +3457,3 @@ class Member(Main):
             if isinstance(chkbox, QCheckBox):
                 chkbox.setChecked(False)
         ui.commLogicObj.display_3DModel("Endplate", bgcolor)
-

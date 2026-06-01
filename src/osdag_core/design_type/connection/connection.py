@@ -672,7 +672,6 @@ class Connection(Main):
         return information
 
     def call_3DColumn(self, ui, bgcolor):
-        from osdag_core.compat import QCheckBox
         for chkbox in ui.cad_comp_widget.children():
             if chkbox.objectName() == 'Column':
                 continue
@@ -684,7 +683,6 @@ class Connection(Main):
         ui.commLogicObj.display_3DModel("Column", bgcolor)
 
     def call_3DBeam(self, ui, bgcolor):
-        from osdag_core.compat import QCheckBox
         for chkbox in ui.cad_comp_widget.children():
             if chkbox.objectName() == 'Beam':
                 continue

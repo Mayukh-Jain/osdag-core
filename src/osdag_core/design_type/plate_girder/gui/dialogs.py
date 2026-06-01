@@ -1,7 +1,3 @@
-from PySide6 import QtCore, QtWidgets
-from PySide6.QtWidgets import QDialog, QLabel, QLineEdit, QPushButton, QFormLayout, QMessageBox
-from PySide6.QtGui import QFont
-from osdag_core.compat import Qt
 from .widgets import My_ListWidget
 
 scale = 1  # For resizing components
@@ -246,4 +242,3 @@ class PopupDialog(QDialog):
         """
         self.listWidget.setStyleSheet(list_item_style + scrollbar_style)
         self.listWidget_2.setStyleSheet(list_item_style + scrollbar_style)
-

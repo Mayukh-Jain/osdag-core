@@ -1,7 +1,6 @@
 import logging
 import math
 import numpy as np
-from osdag_core.compat import QDialog, Qt
 
 from ....Common import *
 from ....utils.common.material import *

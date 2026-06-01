@@ -1352,7 +1352,6 @@ class FinPlateConnection(ShearConnection):
         return components
 
     def call_3DPlate(self, ui, bgcolor):
-        from osdag_core.compat import QCheckBox
         for chkbox in ui.cad_comp_widget.children():
             if chkbox.objectName() == 'Fin Plate':
                 continue

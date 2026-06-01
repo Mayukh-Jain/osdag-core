@@ -11,8 +11,6 @@ previously scattered in template_page.py for better maintainability.
 from typing import TYPE_CHECKING, Optional, Callable
 import time
 
-from PySide6.QtWidgets import QApplication, QComboBox, QWidget
-from osdag_core.compat import Qtimer
 
 # Import safe_processEvents for thread-safe UI updates during CAD operations
 try:
@@ -456,4 +454,3 @@ class PSOUIManager:
         # Enable toggle
         if hasattr(self.parent, 'toggle_opt_action'):
             self.parent.toggle_opt_action.setEnabled(True)
-

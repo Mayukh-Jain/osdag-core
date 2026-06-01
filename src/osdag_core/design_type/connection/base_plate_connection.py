@@ -2304,7 +2304,6 @@ class BasePlateConnection(MomentConnection, IS800_2007, IS_5624_1993, IS1367_Par
         return components
 
     def call_3DPlate(self, ui, bgcolor):
-        from osdag_core.compat import QCheckBox
         for chkbox in ui.cad_comp_widget.children():
             if chkbox.objectName() == 'Base Plate':
                 continue

@@ -2897,7 +2897,6 @@ class ColumnCoverPlate(MomentConnection):
     #
 
     def call_3DColumn(self, ui, bgcolor):
-        from osdag_core.compat import QCheckBox
         for chkbox in ui.cad_comp_widget.children():
             if chkbox.objectName() == 'Column':
                 continue
@@ -2922,7 +2921,6 @@ class ColumnCoverPlate(MomentConnection):
         return components
 
     def call_3DPlate(self, ui, bgcolor):
-        from osdag_core.compat import QCheckBox
         for chkbox in ui.cad_comp_widget.children():
             if chkbox.objectName() == 'Cover Plate':
                 continue
@@ -4299,4 +4297,3 @@ class ColumnCoverPlate(MomentConnection):
 
         CreateLatex.save_latex(CreateLatex(), self.report_input, self.report_check, popup_summary, fname_no_ext,
                                rel_path, Disp_2d_image, Disp_3D_image, module=self.module)
-

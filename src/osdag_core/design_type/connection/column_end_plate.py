@@ -2030,8 +2030,6 @@ class ColumnEndPlate(MomentConnection):
 
     def call_3DPlate(self, ui, bgcolor):
         ui = getattr(ui, "ui", ui)
-        from osdag_core.compat import QCheckBox
-        from osdag_core.compat import Qt
         frame = getattr(ui, "frame", None)
         if frame:
             for chkbox in frame.children():
@@ -2704,5 +2702,3 @@ class ColumnEndPlate(MomentConnection):
 
 
 # def save_latex(self, uiObj, Desigxn_Check, reportsummary, filename, rel_path, Disp_3d_image):
-
-
