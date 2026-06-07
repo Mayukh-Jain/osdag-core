@@ -114,7 +114,11 @@ def _generate_csv(output_dictionary: dict, output_file: str):
 
 
 def _generate_report(module: Main, output_file: Path):
-    """generate pdf and tex report file for the output dictionary."""
+    import os
+    
+    # Generate 3D images before report
+    _generate_cad_images(module, output_file.parent)
+
     popup_summary = {
         'ProfileSummary': {
             'CompanyName': 'LoremIpsum',
@@ -337,6 +341,59 @@ def module(input_path, op_type, output_path):
         click.echo("Operation completed successfully")
         if result.get("output"):
             click.echo(f"Output saved at: {result['output']}")
+
+def _generate_cad_images(module: Main, output_folder: Path):
+    """Create CAD headlessly and render 3D views for report."""
+    try:
+        from osdag_core.cad.common_logic import CommonDesignLogic
+        from osdag_core.cad.offscreen_renderer import render_3d_views
+
+        # Instantiate CommonDesignLogic with no display/widget (CLI mode)
+        connection = getattr(module, 'module', '')
+        mainmodule = getattr(module, 'mainmodule', '')
+        folder = str(output_folder)
+
+        cl = CommonDesignLogic(
+            display=None,
+            cad_widget=None,
+            folder=folder,
+            connection=connection,
+            mainmodule=mainmodule
+        )
+
+        # Call CAD creation
+        status = module.design_status
+        cl.call_3DModel(status, module)
+
+        # Collect shapes
+        shapes = []
+        for attr in ['TObj', 'CPObj', 'BPObj', 'ColObj', 'connectivityObj']:
+            obj = getattr(cl, attr, None)
+            if obj is None:
+                continue
+            for method in ['get_members_models', 'get_plates_models',
+                          'get_welded_models', 'get_end_plates_models',
+                          'get_models']:
+                try:
+                    result = getattr(obj, method)
+                    if callable(result):
+                        result = result()
+                    if result is not None:
+                        shapes.append(result)
+                except Exception:
+                    pass
+            if hasattr(obj, 'shape') and obj.shape is not None:
+                shapes.append(obj.shape)
+
+        if shapes:
+            images_folder = Path(os.path.abspath(".")) / "ResourceFiles" / "images"
+            render_3d_views(shapes, images_folder)
+            print(f"[OffscreenRenderer] Images saved to {images_folder}")
+        else:
+            print("[OffscreenRenderer] No shapes found")
+
+    except Exception as e:
+        print(f"[OffscreenRenderer] Failed: {e}")
 
 
 if __name__ == "__main__":
