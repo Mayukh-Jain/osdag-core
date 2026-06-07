@@ -57,4 +57,14 @@ def render_3d_views(shapes, output_folder=None):
         except Exception as e:
             print(f"[OffscreenRenderer] Failed {label}: {e}")
 
+    import glob
+    import os
+
+    # Clean up auto-generated capture files from OffscreenRenderer
+    for capture_file in glob.glob(str(Path(os.path.abspath(".")) / "capture-*.jpeg")):
+        try:
+            os.remove(capture_file)
+        except Exception:
+            pass
+
     return images
