@@ -228,7 +228,6 @@ class CommonDesignLogic(object):
             None
         """
         # Memory management skipped in CLI mode
-        # osdag_gui handles this in GUI mode
         pass
         # try:
         #     from osdag_core.OS_safety_protocols import get_occ_memory_manager
