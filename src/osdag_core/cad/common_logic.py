@@ -2966,7 +2966,6 @@ class CommonDesignLogic(object):
 
 
     def display_3DModel(self, component, bgcolor):
-        
         # CLI mode — no GUI display, use offscreen renderer
         if not hasattr(self, 'display') or self.display is None:
             self._render_offscreen(component)

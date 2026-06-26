@@ -3432,28 +3432,13 @@ class Member(Main):
 
     def call_3DPlate(self, ui, bgcolor):
         
-        for chkbox in ui.findChildren(QtWidgets.QCheckBox):
-            if chkbox.objectName() == 'Plate':
-                continue
-            if isinstance(chkbox, QCheckBox):
-                chkbox.setChecked(False)
         ui.commLogicObj.display_3DModel("Plate", bgcolor)
 
     def call_3DMember(self, ui, bgcolor):
       
-        for chkbox in ui.findChildren(QtWidgets.QCheckBox):
-            if chkbox.objectName() == 'Member':
-                continue
-            if isinstance(chkbox, QCheckBox):
-                chkbox.setChecked(False)
         ui.commLogicObj.display_3DModel("Member", bgcolor)
 
 
     def call_3DEndplate(self, ui, bgcolor):
        
-        for chkbox in ui.findChildren(QtWidgets.QCheckBox):
-            if chkbox.objectName() == 'Endplate':
-                continue
-            if isinstance(chkbox, QCheckBox):
-                chkbox.setChecked(False)
         ui.commLogicObj.display_3DModel("Endplate", bgcolor)

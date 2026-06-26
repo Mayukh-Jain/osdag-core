@@ -181,11 +181,6 @@ class TrussConnectionBolted(TrussConnection):
         return components
 
     def call_3DPlate(self, ui, bgcolor):
-        for chkbox in ui.frame.children():
-            if chkbox.objectName() == 'Truss Connection Bolted':
-                continue
-            if isinstance(chkbox, QCheckBox):
-                chkbox.setChecked(Qt.Unchecked)
         # ui.commLogicObj.display_3DModel("Plate", bgcolor)
 
 

@@ -1305,11 +1305,6 @@ class EndPlateConnection(ShearConnection):
         return components
 
     def call_3DPlate(self, ui, bgcolor):
-        for chkbox in ui.cad_comp_widget.children():
-            if chkbox.objectName() == 'End Plate':
-                continue
-            if isinstance(chkbox, QCheckBox):
-                chkbox.setChecked(False)
         ui.commLogicObj.display_3DModel("Plate", bgcolor)
 
     def output_values(self, flag):
